@@ -1,22 +1,7 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Checkbox, FormControl, Grid, GridItem, HStack, Heading, IconButton, Image, Input, InputGroup, InputLeftAddon, InputLeftElement, InputRightElement, Menu, 
-         MenuButton, MenuItem, MenuList, Select, Stack, StackDivider, Text } 
-from '@chakra-ui/react'
-import Logo from '../../assets/neco_logo.svg'
-import Dashboard from '../../assets/dashboard.svg'
-import MyT from '../../assets/mytoken.svg'
-import CheckR from '../../assets/checkresult.svg'
-import ResultH from '../../assets/resulthistory.svg'
-import Transaction from '../../assets/transaction.svg'
-import Profile from '../../assets/profile.svg'
-import Commonicon from '../../assets/commonicon.svg'
-import CardIcon1 from '../../assets/cardIcon1.svg'
-import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, Search2Icon, SearchIcon } from '@chakra-ui/icons'
 
-
-
-
-function Mytoken() {
+function ResultH() {
   return (
     <Box>
 
@@ -100,21 +85,20 @@ function Mytoken() {
 
                 <Box px={'4'}>
                     <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} mt={'10'}>
-                        <ButtonGroup>
-                            <Button outlineColor={'green'}>Unused</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Active/Link</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Exhausted</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Issued</Button>
-                        </ButtonGroup>
-
                         <FormControl borderRadius={'5px'} mr={'40'} ml={'5'} bgColor={'#e0e0e0;'}>
-                            <InputGroup>
-                                <InputRightElement pointerEvents='none' display={'flex'} justifyContent={'center'} alignItems={'center'} >
-                                <Search2Icon color='black'/>
-                                </InputRightElement>
-                                <Input type='tel' placeholder='Search Examination Year' size={'lg'} />
-                            </InputGroup>
+                                <InputGroup>
+                                    <InputRightElement pointerEvents='none' display={'flex'} justifyContent={'center'} alignItems={'center'} >
+                                    <Search2Icon color='black'/>
+                                    </InputRightElement>
+                                    <Input type='tel' placeholder='Search by Name or Registration Number' size={'lg'} />
+                                </InputGroup>
                         </FormControl>
+
+                        <Select placeholder='All' w='50px'>
+                            <option value='option1'>Option 1</option>
+                            <option value='option2'>Option 2</option>
+                            <option value='option3'>Option 3</option>
+                        </Select>
 
                         <Box borderRadius={'5px'} bgColor={'#07bc0c;'}>
                             <Button colorScheme='#07bc0c;'>
@@ -127,12 +111,10 @@ function Mytoken() {
 
                         <Card border={'2px solid black'}>
                             <CardHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}borderBottom={'2px'} bgColor={'#e5e7eb;'}>
-                                <Box>
-                                    <Checkbox colorScheme='red' defaultChecked> </Checkbox>
-                                </Box>
+                                <Heading as={'h6'} size={'sm'}> Candidate </Heading>
+                                <Heading as={'h6'} size={'sm'}> Name </Heading>
+                                <Heading as={'h6'} size={'sm'}> Exams </Heading>
                                 <Heading as={'h6'} size={'sm'}> Token </Heading>
-                                <Heading as={'h6'} size={'sm'}> Payment Reference </Heading>
-                                <Heading as={'h6'} size={'sm'}> Purchase Date </Heading>
                                 <Heading as={'h6'} size={'sm'}> Views </Heading>
                                 <Heading as={'h6'} size={'sm'}> Action </Heading>
                             </CardHeader>
@@ -191,4 +173,4 @@ function Mytoken() {
   )
 }
 
-export default Mytoken
+export default ResultH

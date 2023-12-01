@@ -44,8 +44,8 @@ function DashboardHome() {
                     <Image src={Logo} />
                   </Box>
                 
-                  <HStack py={4}>
-                    <Link href='/' color={'white'}>  <Image src={Dashboard} bg='white'/> </Link>
+                  <HStack py={4} bg={'white'} h={'10'} w={'100%'}>
+                    <Link href='/' bg='white' >  <Image src={Dashboard} bg={'white'}/> </Link>
                     <Link href='/' color={'white'}>  Dashboard </Link>
                   </HStack>
 
@@ -61,8 +61,8 @@ function DashboardHome() {
                   </HStack>
 
                   <HStack py={4}>
-                    <Image src={ResultH} bg='white'/>
-                    <Text color='white'> Result History </Text>
+                    <Link href='/resultH' color={'white'}> <Image src={ResultH} bg='white'/> </Link>
+                    <Link href='/resultH' color={'white'}> Result History </Link>
                   </HStack>
 
                   <HStack py={4}>
