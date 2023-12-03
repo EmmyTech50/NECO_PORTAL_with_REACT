@@ -9,9 +9,9 @@ import Signup from './components/Signup.jsx'
 import Create_account from './components/Create_account.jsx'
 import Forgot_Password from './components/Forgot_Password.jsx'
 import Mytoken from './components/dashboard/Mytoken.jsx'
-import Profile from './components/dashboard/Profile.jsx'
-import ResultHistory from './components/dashboard/ResultH.jsx'
-
+import Profile_page from './components/dashboard/Profile_page.jsx'
+import ResultHistory from './components/dashboard/ResultHistory.jsx'
+import Transactions from './components/dashboard/Transactions.jsx'
 // Dashboard
 import Home from './components/dashboard/DashboardHome.jsx'
 
@@ -27,8 +27,9 @@ const router = createBrowserRouter(     [
   {  path: "/Create_account",  element: <Create_account />, },
   {  path: "/Forgot_Password",  element: <Forgot_Password />, },
   {  path: "/my-token",  element: <Mytoken />, },
-  {  path: "/profile",  element: <Profile />, },
-  {  path: "/resultH",  element: <ResultHistory />, },
+  {  path: "/profile",  element: <Profile_page />, },
+  {  path: "/result_history",  element: <ResultHistory />, },
+  {  path: "/transaction",  element: <Transactions />, },
 ] );
 
 ReactDOM.createRoot(document.getElementById('root')).render(

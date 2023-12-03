@@ -1,6 +1,10 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Center, Grid, GridItem, HStack, Heading, Image, Link, Menu, MenuButton, MenuItem, MenuList, SimpleGrid, Stack, Text, VStack  } from '@chakra-ui/react'
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, 
+         Grid, GridItem, HStack, Heading, Image, Link,
+         Menu, MenuButton, MenuItem, MenuList, SimpleGrid, Stack,
+         Text, VStack  
+        } 
+from '@chakra-ui/react'
 import Logo from '../../assets/neco_logo.svg'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import Dashboard from '../../assets/dashboard.svg'
@@ -22,6 +26,7 @@ import Transaction from '../../assets/transaction.svg'
 
 
 
+
 function DashboardHome() {
   return (
     <Box>
@@ -34,7 +39,7 @@ function DashboardHome() {
       > 
 
 
-            <GridItem h='100vh' bg='green' px='4'>
+            <GridItem h='100vh' bg='#51b55f' px='4'>
               
                 
               <Box>
@@ -44,8 +49,8 @@ function DashboardHome() {
                     <Image src={Logo} />
                   </Box>
                 
-                  <HStack py={4} bg={'white'} h={'10'} w={'100%'}>
-                    <Link href='/' bg='white' >  <Image src={Dashboard} bg={'white'}/> </Link>
+                  <HStack py={4} >
+                    <Link href='/' bg='white' >  <Image src={Dashboard}/> </Link>
                     <Link href='/' color={'white'}>  Dashboard </Link>
                   </HStack>
 
@@ -61,13 +66,13 @@ function DashboardHome() {
                   </HStack>
 
                   <HStack py={4}>
-                    <Link href='/resultH' color={'white'}> <Image src={ResultH} bg='white'/> </Link>
-                    <Link href='/resultH' color={'white'}> Result History </Link>
+                    <Link href='/result_history' color={'white'}> <Image src={ResultH} bg='white'/> </Link>
+                    <Link href='/result_history' color={'white'}> Result History </Link>
                   </HStack>
 
                   <HStack py={4}>
-                    <Image src={Transaction} bg='white'/>
-                    <Text color='white'> Transaction </Text>
+                    <Link href='/transaction' color={'white'}> <Image src={Transaction} bg='white'/> </Link>
+                    <Link href='/transaction' color={'white'}> Transaction </Link>
                   </HStack>
 
                   <HStack py={4} >
@@ -83,7 +88,8 @@ function DashboardHome() {
 
 
             <GridItem h='100vh' width='100%' colSpan='4'>
-              <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' alignItems='center'>
+              <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' 
+              alignItems='center'>
                   <Text>RESULT PORTAL</Text>
 
                   <Menu>
@@ -104,62 +110,70 @@ function DashboardHome() {
               </Box>
 
               <Box mt={'10'}>
-                <Heading as={'h6'} size={'sm'} textAlign={'Center'}> Hi, onogwu Okwori - Welcome to NECO Results </Heading>
-                <Text textAlign={'center'} > Here you can check NECO results by acquiring tokens for single or multiple <br/>
+                <Heading as={'h6'} size={'sm'} textAlign={'Center'}> Hi, onogwu Okwori - Welcome to NECO Results 
+                </Heading>
+                <Text textAlign={'center'} > Here you can check NECO results by acquiring tokens for single or multiple 
+                <br/>
                         results. The buttons below show a few things you can do right away </Text>
               </Box>
 
               <SimpleGrid columns={4} spacingX='30px' spacingY='20px' px='4' mt='25px'>
-                <Box bgColor='lavender' height='100px' display='flex' justifyContent='space-between' alignItems='center'>
+                <Box height='100px' display='flex' justifyContent='space-between' alignItems='center' 
+                boxShadow='xl' p='4' rounded='md' border='1px solid lavender'>
                  
-                    <Box ml='4' height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} alignItems={'center'} bgColor={'red'}>
+                    <Box  height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} 
+                    alignItems={'center'} bgColor={'#6b7280'}>
                       <Image src={CommonIcon} />
                     </Box>
 
-                    <VStack mr='4'>
-                      <Text>Purchased Token</Text>
+                    <VStack >
+                      <Text color={'#6b7280'} fontSize={'14'} fontWeight={'200'}>Purchased Token</Text>
                       <Text>0</Text>
                     </VStack>
                   
 
                 </Box>
 
-                <Box bgColor='lavender' height='100px' display='flex' justifyContent='space-between' alignItems='center'>
+                <Box height='100px' display='flex' justifyContent='space-between' alignItems='center' 
+                boxShadow='xl' p='4' rounded='md' border='1px solid lavender'>
                  
-                  <Box ml='4' height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} alignItems={'center'} bgColor={'green'}>
+                  <Box  height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'}
+                   alignItems={'center'} bgColor={'#51b55f'}>
                     <Image src={CommonIcon}/>
                   </Box>
 
-                    <VStack mr='4'>
-                      <Text>Available Token</Text>
+                    <VStack >
+                      <Text color={'#51b55f'} fontSize={'14'} fontWeight={'200'}>Available Token</Text>
                       <Text>0</Text>
                     </VStack>
                   
 
                 </Box>
 
-                <Box bgColor='lavender'height='100px' display='flex' justifyContent='space-between' alignItems='center'>
+                <Box height='100px' display='flex' justifyContent='space-between' alignItems='center' 
+                boxShadow='xl' p='4' rounded='md' border='1px solid lavender'>
                  
-                  <Box ml='4' height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} alignItems={'center'} bgColor={'blue'}>
+                  <Box  height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'}
+                   alignItems={'center'} bgColor={'#3b82f6'}>
                     <Image src={CommonIcon} />
                   </Box>  
 
-                 <VStack mr='4'>
-                   <Text>Active Token</Text>
+                 <VStack >
+                   <Text color={'#3b82f6'} fontSize={'14'} fontWeight={'200'}>Active Token</Text>
                    <Text>0</Text>
                  </VStack>
                
 
                 </Box>
 
-                <Box bgColor='lavender' height='100px' display='flex' justifyContent='space-between' alignItems='center'>
+                <Box height='100px' display='flex' justifyContent='space-between' alignItems='center' boxShadow='xl' p='4' rounded='md' border='1px solid lavender'>
                  
-                  <Box ml='4' height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} alignItems={'center'} bgColor={'red'}>
+                  <Box  height='50px' w='50px' borderRadius={'5'} display={'flex'} justifyContent={'center'} alignItems={'center'} bgColor={'#ef4444'}>
                     <Image src={CommonIcon} />
                   </Box>
 
-                 <VStack mr='4'>
-                   <Text>Exhausted Token</Text>
+                 <VStack >
+                   <Text color={'#ef4444'} fontSize={'14'} fontWeight={'200'}>Exhausted Token</Text>
                    <Text>0</Text>
                  </VStack>
                
@@ -169,9 +183,11 @@ function DashboardHome() {
 
               <SimpleGrid spacing={7} templateColumns='repeat(auto-fill, minmax(200px, 1fr))' px='4' mt='5'>
 
-                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} bgColor='lavender' h={'280'} w={'100'}>
-                  <CardHeader >
-                    <Image src={CardIcon1}/>
+                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} boxShadow='xl'  rounded='md' border='1px solid lavender' h='280px' w='240px'>
+                  <CardHeader>
+                    <Box h='95px' w='95px' borderRadius='50%' bg={'#dcfce7'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                      <Image src={CardIcon1} />
+                    </Box>
                   </CardHeader>
 
                   <CardBody>
@@ -181,35 +197,38 @@ function DashboardHome() {
                   </CardBody>
 
                   <CardFooter >
-                    <Button bgColor={'green'} color='white' h={'10'} w={'100'}>Purchased Token</Button>
+                    <Button bgColor={'#51b55f'} color='white' h={'10'} w={'100'}>Purchased Token</Button>
                   </CardFooter>
                 </Card>
 
-                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} bgColor='lavender' h={'280'} w={'100'}>
+                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} boxShadow='xl'  rounded='md' border='1px solid lavender' h='280px' w='240px'>
                   <CardHeader >
-                    <Image src={CardIcon2}/>
+                    <Box h='95px' w='95px' borderRadius='50%' bg={'#dcfce7'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                      <Image src={CardIcon2}/>
+                    </Box>
                   </CardHeader>
 
                   <CardBody>
-                    <Heading as={'h6'} size={'sm'} textAlign='center' >Pay for Result Token</Heading>
-                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Token is required to view results, <br/>
-                       purchase one or more</Text>
+                    <Heading as={'h6'} size={'sm'} textAlign='center' >View Transactions</Heading>
+                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Check your transaction history or <br/>
+                    request reconcilation</Text>
                   </CardBody>
 
-                  <CardFooter >
-                    <Button outlineColor={'green'} color='green' h={'10'} w={'100'}>View Transactions</Button>
+                  <CardFooter >                  
+                      <Button outlineColor={'green'} color='green' h={'10'} w={'100'}>View Transactions</Button>
                   </CardFooter>
                 </Card>
 
-                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} bgColor='lavender' h={'280'} w={'100'}>
+                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} boxShadow='xl'  rounded='md' border='1px solid lavender' h='280px' w='240px'>
                   <CardHeader >
-                    <Image src={CardIcon3}/>
+                    <Box  h='95px' w='95px' borderRadius='50%' bg={'#dcfce7'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                      <Image src={CardIcon3}/>
+                    </Box>
                   </CardHeader>
 
                   <CardBody>
-                    <Heading as={'h6'} size={'sm'} textAlign='center' >Pay for Result Token</Heading>
-                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Token is required to view results, <br/>
-                       purchase one or more</Text>
+                    <Heading as={'h6'} size={'sm'} textAlign='center' >View Results</Heading>
+                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Click here to view result </Text>
                   </CardBody>
 
                   <CardFooter >
@@ -217,15 +236,17 @@ function DashboardHome() {
                   </CardFooter>
                 </Card>
 
-                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} bgColor='lavender' h={'280'} w={'100'}>
+                <Card display={'flex'} alignItems={'center'} justifyContent={'center'} boxShadow='xl'  rounded='md' border='1px solid lavender' h='280px' w='240px'>
                   <CardHeader >
-                    <Image src={CardIcon4}/>
+                    <Box  h='95px' w='95px' borderRadius='50%' bg={'#dcfce7'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                      <Image src={CardIcon4}/>
+                    </Box>
                   </CardHeader>
 
                   <CardBody>
-                    <Heading as={'h6'} size={'sm'} textAlign='center' >Pay for Result Token</Heading>
-                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Token is required to view results, <br/>
-                       purchase one or more</Text>
+                    <Heading as={'h6'} size={'sm'} textAlign='center' >View purchased token</Heading>
+                    <Text textAlign='center' fontSize={'10'} fontWeight={'500'} lineHeight={'2'} >Click here to view purchased <br/>
+                    Token</Text>
                   </CardBody>
 
                   <CardFooter >

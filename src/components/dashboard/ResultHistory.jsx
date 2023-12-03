@@ -1,7 +1,20 @@
-import { Heading } from '@chakra-ui/react'
 import React from 'react'
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, Search2Icon } from '@chakra-ui/icons'
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, 
+         FormControl, Grid, GridItem, HStack, Heading, Image, 
+         Input, InputGroup, InputRightElement, Menu, MenuButton, 
+         MenuItem, MenuList, Select, Stack, Text 
+        } 
+from '@chakra-ui/react'
+import Logo from '../../assets/neco_logo.svg'
+import Dashboard from '../../assets/dashboard.svg'
+import MyT from '../../assets/mytoken.svg'
+import CheckR from '../../assets/checkresult.svg'
+import ResultH from '../../assets/resulthistory.svg'
+import Transaction from '../../assets/transaction.svg'
+import Profile from '../../assets/profile.svg'
 
-function ResultH() {
+function ResultHistory() {
   return (
     <Box>
 
@@ -13,7 +26,7 @@ function ResultH() {
         > 
 
 
-            <GridItem h='100vh' bg='green' px='4'>
+            <GridItem h='100vh' bg='#51b55f' px='4'>
                 
                 
                 <Box>
@@ -78,14 +91,14 @@ function ResultH() {
                 </HStack>
 
                 <Box mt='10'>
-                <Heading as={'h6'} size={'m'} px={4}> MY TOKEN </Heading>
+                <Heading as={'h6'} size={'m'} px={4}> Result History </Heading>
                 </Box>
 
                 
 
                 <Box px={'4'}>
                     <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} mt={'10'}>
-                        <FormControl borderRadius={'5px'} mr={'40'} ml={'5'} bgColor={'#e0e0e0;'}>
+                        <FormControl borderRadius='5px' w='400px' bgColor={'#e0e0e0;'}>
                                 <InputGroup>
                                     <InputRightElement pointerEvents='none' display={'flex'} justifyContent={'center'} alignItems={'center'} >
                                     <Search2Icon color='black'/>
@@ -94,14 +107,14 @@ function ResultH() {
                                 </InputGroup>
                         </FormControl>
 
-                        <Select placeholder='All' w='50px'>
+                        <Select placeholder='All' w='100px' bgColor={'#e0e0e0;'}>
                             <option value='option1'>Option 1</option>
                             <option value='option2'>Option 2</option>
                             <option value='option3'>Option 3</option>
                         </Select>
 
-                        <Box borderRadius={'5px'} bgColor={'#07bc0c;'}>
-                            <Button colorScheme='#07bc0c;'>
+                        <Box borderRadius={'5px'} bgColor={'#51b55f'}>
+                            <Button colorScheme='#51b55f'>
                                 Purchase Token
                             </Button>
                         </Box>
@@ -109,8 +122,8 @@ function ResultH() {
 
                     <Box mt={'10'}>
 
-                        <Card border={'2px solid black'}>
-                            <CardHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}borderBottom={'2px'} bgColor={'#e5e7eb;'}>
+                        <Card border='2px solid #e0e0e0;'>
+                            <CardHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}borderBottom={'2px solid #ccc'} bgColor={'#fff;'}>
                                 <Heading as={'h6'} size={'sm'}> Candidate </Heading>
                                 <Heading as={'h6'} size={'sm'}> Name </Heading>
                                 <Heading as={'h6'} size={'sm'}> Exams </Heading>
@@ -142,8 +155,8 @@ function ResultH() {
                                     </Text>
 
                                     <Box display={'flex'} >
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'green'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon/> </Box>
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'green'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon/> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon/> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon/> </Box>
                                     </Box>
                                 </CardFooter>
                             </Box>
@@ -169,8 +182,8 @@ function ResultH() {
 
         </Grid>
 
-  </Box>
+    </Box>
   )
 }
 
-export default ResultH
+export default ResultHistory

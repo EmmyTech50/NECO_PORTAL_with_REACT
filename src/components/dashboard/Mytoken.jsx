@@ -9,8 +9,6 @@ import CheckR from '../../assets/checkresult.svg'
 import ResultH from '../../assets/resulthistory.svg'
 import Transaction from '../../assets/transaction.svg'
 import Profile from '../../assets/profile.svg'
-import Commonicon from '../../assets/commonicon.svg'
-import CardIcon1 from '../../assets/cardIcon1.svg'
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, Search2Icon, SearchIcon } from '@chakra-ui/icons'
 
 
@@ -28,7 +26,7 @@ function Mytoken() {
         > 
 
 
-            <GridItem h='100vh' bg='green' px='4'>
+            <GridItem h='100vh' bg='#51b55f' px='4'>
                 
                 
                 <Box>
@@ -100,11 +98,13 @@ function Mytoken() {
 
                 <Box px={'4'}>
                     <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} mt={'10'}>
-                        <ButtonGroup>
-                            <Button outlineColor={'green'}>Unused</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Active/Link</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Exhausted</Button>
-                            <Button colorScheme='white' color={'black'} border={'1px'}>Issued</Button>
+                        
+                        <ButtonGroup size='lg' isAttached variant='outline'>
+                            <Button outlineColor={'#51b55f'}>Unused</Button>
+                            <Button>Active/Link</Button>
+                            <Button>Exhausted</Button>
+                            <Button>Issued</Button>
+                            
                         </ButtonGroup>
 
                         <FormControl borderRadius={'5px'} mr={'40'} ml={'5'} bgColor={'#e0e0e0;'}>
@@ -112,12 +112,12 @@ function Mytoken() {
                                 <InputRightElement pointerEvents='none' display={'flex'} justifyContent={'center'} alignItems={'center'} >
                                 <Search2Icon color='black'/>
                                 </InputRightElement>
-                                <Input type='tel' placeholder='Search Examination Year' size={'lg'} />
+                                <Input type='tel' placeholder='Search Examination Year' size={'lg'} fontSize={'15'} />
                             </InputGroup>
                         </FormControl>
 
-                        <Box borderRadius={'5px'} bgColor={'#07bc0c;'}>
-                            <Button colorScheme='#07bc0c;'>
+                        <Box borderRadius={'5px'} bgColor={'#51b55f'}>
+                            <Button colorScheme='#51b55f'>
                                 Purchase Token
                             </Button>
                         </Box>
@@ -125,10 +125,10 @@ function Mytoken() {
 
                     <Box mt={'10'}>
 
-                        <Card border={'2px solid black'}>
-                            <CardHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}borderBottom={'2px'} bgColor={'#e5e7eb;'}>
+                        <Card border={'2px solid #e0e0e0;'}>
+                            <CardHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}borderBottom={'2px solid #ccc'} bgColor={'#fff;'}>
                                 <Box>
-                                    <Checkbox colorScheme='red' defaultChecked> </Checkbox>
+                                    <Checkbox> </Checkbox>
                                 </Box>
                                 <Heading as={'h6'} size={'sm'}> Token </Heading>
                                 <Heading as={'h6'} size={'sm'}> Payment Reference </Heading>
@@ -160,8 +160,8 @@ function Mytoken() {
                                     </Text>
 
                                     <Box display={'flex'} >
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'green'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon/> </Box>
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'green'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon/> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon/> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon/> </Box>
                                     </Box>
                                 </CardFooter>
                             </Box>
