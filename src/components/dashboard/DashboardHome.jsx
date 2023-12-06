@@ -1,12 +1,16 @@
 import React from 'react'
 import { Box, Button, Card, CardBody, CardFooter, CardHeader, 
-         Grid, GridItem, HStack, Heading, Image, Link,
-         Menu, MenuButton, MenuItem, MenuList, SimpleGrid, Stack,
-         Text, VStack  
+         FormControl, 
+         FormLabel, 
+         Grid, GridItem, HStack, Heading, Image, Input, Link,
+         Menu, MenuButton, MenuItem, MenuList, Modal, ModalBody, 
+         ModalCloseButton, ModalContent, ModalFooter, ModalHeader, 
+         ModalOverlay, SimpleGrid, Stack,
+         Text, VStack, useBoolean, useDisclosure 
         } 
 from '@chakra-ui/react'
 import Logo from '../../assets/neco_logo.svg'
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ArrowLeftIcon, ChevronDownIcon, CloseIcon } from '@chakra-ui/icons'
 import Dashboard from '../../assets/dashboard.svg'
 import MyT from '../../assets/mytoken.svg'
 import Profile from '../../assets/Profile.svg'
@@ -28,6 +32,10 @@ import Transaction from '../../assets/transaction.svg'
 
 
 function DashboardHome() {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const [flag, setFlag] = useBoolean()
   return (
     <Box>
 
@@ -38,11 +46,102 @@ function DashboardHome() {
           width='100%'
       > 
 
-
-            <GridItem h='100vh' bg='#51b55f' px='4'>
+            {/* the parent container of the left part */}
+            <GridItem h='100vh' bg='#51b55f' px='4' display='flex'>
               
+              {/* this is the first part of the left icon */}
+              <Box h='inherit' bg='#51b55f' flex='2px' >
+              
+
+                <Stack >
+                  <Box py={4}>
+                    <Image src={Logo} />
+                  </Box>
                 
-              <Box>
+                  <HStack py={4} >
+                    <Link href='/' bg='white' >  <Image src={Dashboard}/> </Link>
+                    
+                  </HStack>
+
+                  <HStack py={4}>
+                    <Link href='/my-token' color={'white'}> <Image src={MyT} bg='white'/> </Link>
+                    
+                    
+                  </HStack>
+
+                  <HStack py={4}>
+                    
+                    <Link onClick={onOpen} color={'white'}> <Image src={CheckR} bg='white'/> </Link>
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                          <ModalHeader>
+                            <Heading as='h4' size='md'>Check Result</Heading>
+                          </ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>
+                            <Box>
+                              <Text fontSize='15px'>Each token can be used with only one result for a specific <br/>
+                                    number of views
+                              </Text>
+                              <FormControl mt='10px'>
+                                <FormLabel>Token Number</FormLabel>
+                                <Input type='Number' placeholder='Token eg(0000 0000 0000)' variant='filled'/>
+                                <FormLabel>Examination Number</FormLabel>
+                                <Input type='Number' placeholder='Registration Number' variant='filled'/>
+                                <FormLabel>Examination Year</FormLabel>
+                                <Input type='Number' placeholder='Examination Year' variant='filled'/>
+                                <FormLabel>Examination Type</FormLabel>
+                                <Input type='Text' placeholder='Examination Type' variant='filled'/>
+                              </FormControl>
+                            </Box>
+                            
+                          </ModalBody>
+
+                          <ModalFooter>
+                            <Stack>
+                              <HStack>
+                                <Box w='100%'>
+                                  <Button w='100%' outlineColor='#51b55f' color='#51b55f' onClick={onClose}>
+                                    Cancel
+                                  </Button>
+                                </Box>
+
+                                <Box w='100%'>
+                                  <Button w='100%' bg='#51b55f' color='#fff'>Check Result</Button>
+                                </Box>
+                              </HStack>
+                            </Stack>
+                          
+                          
+                          </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </HStack>
+
+                  <HStack py={4}>
+                    <Link href='/result_history' color={'white'}> <Image src={ResultH} bg='white'/> </Link>
+                   
+                  </HStack>
+
+                  <HStack py={4}>
+                    <Link href='/transaction' color={'white'}> <Image src={Transaction} bg='white'/> </Link>
+                    
+                  </HStack>
+
+                  <HStack py={4} >
+                    <Link href='/profile' color={'white'}> <Image src={Profile} bg='white' /> </Link>
+                   
+                  </HStack>
+
+                </Stack>
+
+              </Box>
+
+              {/* this is the toggling part */}
+              { flag ?    
+              <Box h='inherit' bg='#51b55f' flex='4px' >
+              
 
                 <Stack >
                   <Box py={4}>
@@ -62,7 +161,52 @@ function DashboardHome() {
 
                   <HStack py={4}>
                     <Image src={CheckR} bg='white'/>
-                    <Text color='white'> Check Result </Text>
+                    <Link onClick={onOpen} color={'white'}>Check Result</Link>
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                          <ModalHeader>
+                            <Heading as='h4' size='md'>Check Result</Heading>
+                          </ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>
+                            <Box>
+                              <Text fontSize='15px'>Each token can be used with only one result for a specific <br/>
+                                    number of views
+                              </Text>
+                              <FormControl mt='10px'>
+                                <FormLabel>Token Number</FormLabel>
+                                <Input type='Number' placeholder='Token eg(0000 0000 0000)' variant='filled'/>
+                                <FormLabel>Examination Number</FormLabel>
+                                <Input type='Number' placeholder='Registration Number' variant='filled'/>
+                                <FormLabel>Examination Year</FormLabel>
+                                <Input type='Number' placeholder='Examination Year' variant='filled'/>
+                                <FormLabel>Examination Type</FormLabel>
+                                <Input type='Text' placeholder='Examination Type' variant='filled'/>
+                              </FormControl>
+                            </Box>
+                            
+                          </ModalBody>
+
+                          <ModalFooter>
+                            <Stack>
+                              <HStack>
+                                <Box w='100%'>
+                                  <Button w='100%' outlineColor='#51b55f' color='#51b55f' onClick={onClose}>
+                                    Cancel
+                                  </Button>
+                                </Box>
+
+                                <Box w='100%'>
+                                  <Button w='100%' bg='#51b55f' color='#fff'>Check Result</Button>
+                                </Box>
+                              </HStack>
+                            </Stack>
+                          
+                          
+                          </ModalFooter>
+                      </ModalContent>
+                    </Modal>
                   </HStack>
 
                   <HStack py={4}>
@@ -82,15 +226,20 @@ function DashboardHome() {
 
                 </Stack>
 
-              </Box>
+              </Box> : ''}
 
             </GridItem>
 
 
-            <GridItem h='100vh' width='100%' colSpan='4'>
-              <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' 
-              alignItems='center'>
-                  <Text>RESULT PORTAL</Text>
+            <GridItem h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
+                  <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' 
+                  alignItems='center'>
+
+                  <Box display='flex' justifyContent='center' alignItems='center'>
+                  <Button onClick={setFlag.toggle}> <ArrowLeftIcon/> </Button>
+                    <Text>RESULT PORTAL</Text>
+                  </Box>
+                  
 
                   <Menu>
                     <MenuButton bgColor='lavender' as={Button} rightIcon={<ChevronDownIcon />}>
@@ -98,8 +247,15 @@ function DashboardHome() {
                       emmagospelnews@gmail.com
                     </MenuButton>
                     <MenuList>
-                      <MenuItem>Profile</MenuItem>
-                      <MenuItem>Log Out</MenuItem>
+                      <MenuItem> 
+                        <Link href='/profile' color={'white'}><Image src={Profile} bg='white' color='#fff'/></Link> 
+                        <Link href='/profile' ><Text>Profile</Text></Link> 
+                        
+                      </MenuItem>
+                      <MenuItem>
+                        <CloseIcon/>
+                        <Text>Log Out</Text>
+                      </MenuItem>
                       
                     </MenuList>
                   </Menu>
@@ -270,7 +426,11 @@ function DashboardHome() {
 
     </Box>
 
+    
+            
 
+   
+  
     
   )
 }

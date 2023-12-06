@@ -77,7 +77,7 @@ function Profile_page() {
             </GridItem>
 
 
-            <GridItem h='100vh' width='100%' colSpan='4'>
+            <GridItem className='right_container' h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
                 <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' alignItems='center'>
                     <Text>RESULT PORTAL</Text>
 
@@ -187,7 +187,7 @@ function Profile_page() {
         
                     </Box>
 
-                    <Box borderBottom='2px solid lavender' mt='50px'>  
+                    <Box>  
 
                         <Text>Confirm Password </Text> 
 
@@ -200,13 +200,17 @@ function Profile_page() {
                                     {show ? <ViewOffIcon/> : <ViewIcon/>}
                                     </Button>
                                 </InputRightElement>
-                            </InputGroup>    
-                                    
+                            </InputGroup>           
                         </Box>
-                        <Box borderBottom='2px solid lavender' mt='20px'></Box>
+
+                        <Box w='100%' mx='30px' mt='10px'>
+                            <Button bgColor='#51b55f' color='#fff' float='right' w='200px' mr='29.5%'> Save</Button>
+                        </Box>
                                 
                     </Box>
-                </Box>    
+                    
+                </Box>   
+               
                 
                 
                 

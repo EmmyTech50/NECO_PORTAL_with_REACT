@@ -3,3 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.right_container{
+  max-height: 100vh;
+  overflow-y: scroll;
+  
+}

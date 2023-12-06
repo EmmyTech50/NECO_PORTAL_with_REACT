@@ -73,7 +73,7 @@ function Transactions() {
             </GridItem>
 
 
-            <GridItem h='100vh' width='100%' colSpan='4'>
+            <GridItem h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
                 <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' alignItems='center'>
                     <Text>RESULT PORTAL</Text>
 

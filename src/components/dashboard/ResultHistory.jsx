@@ -73,7 +73,7 @@ function ResultHistory() {
             </GridItem>
 
 
-            <GridItem h='100vh' width='100%' colSpan='4'>
+            <GridItem h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
                 <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' alignItems='center'>
                     <Text>RESULT PORTAL</Text>
 
@@ -155,8 +155,8 @@ function ResultHistory() {
                                     </Text>
 
                                     <Box display={'flex'} >
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon/> </Box>
-                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon/> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} mr={'1'}> <ArrowLeftIcon color='white' /> </Box>
+                                        <Box h='40px' w='40px' borderRadius='50%' bgColor={'#51b55f'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={'1'}> <ArrowRightIcon color='white'/></Box>
                                     </Box>
                                 </CardFooter>
                             </Box>
