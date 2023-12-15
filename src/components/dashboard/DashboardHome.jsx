@@ -37,6 +37,8 @@ function DashboardHome() {
 
   const [flag, setFlag] = useBoolean()
   return (
+   
+
     <Box>
 
       <Grid
@@ -47,12 +49,12 @@ function DashboardHome() {
       > 
 
             {/* the parent container of the left part */}
-            <GridItem h='100vh' bg='#51b55f' px='4' display='flex'>
+            <GridItem h='100vh' bg='#51b55f' px='4' display='flex' colSpan={1/2}>
               
               {/* this is the first part of the left icon */}
               <Box h='inherit' bg='#51b55f' flex='2px' >
               
-
+                
                 <Stack >
                   <Box py={4}>
                     <Image src={Logo} />
@@ -230,8 +232,8 @@ function DashboardHome() {
 
             </GridItem>
 
-
-            <GridItem h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
+            {/* right container */}
+            <GridItem h='100vh' width='100%' colSpan={4} overflowY='scroll' overflowX='hidden' >
                   <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' 
                   alignItems='center'>
 
