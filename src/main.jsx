@@ -15,11 +15,7 @@ import Transactions from './components/dashboard/Transactions.jsx'
 // Dashboard
 import Home from './components/dashboard/DashboardHome.jsx'
 import Dashland from './components/dashboard/Dashland.jsx'
-
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-
 
 const router = createBrowserRouter(     [ 
   {  path: "/",  element: <App />, },
