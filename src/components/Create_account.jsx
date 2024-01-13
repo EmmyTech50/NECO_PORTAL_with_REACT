@@ -18,10 +18,16 @@ function Create_account() {
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
 
-    // for email
-    const [input, setInput] = React.useState('')
-    const handleInputChange = (e) => setInput(e.target.value)
-    const isError = input === ''
+    // for user inputs
+    const [fname, setFname]   = React.useState('');
+    const [mdname, setMdName] = React.useState('');
+    const [lname, setLname]   = React.useState('');
+    const [email, setEmail]   = React.useState('');
+    const [phone, setPhone]       = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [comfirm_pass, setComfirmPassword] = React.useState('');
+
+    const isError = '';
 
     return (
         <Grid
@@ -48,7 +54,7 @@ function Create_account() {
                        
                         <FormControl isInvalid={isError}  >
                           <FormLabel>First Name</FormLabel>
-                            <Input type='text' value={input} onChange={handleInputChange} w='100%' variant='filled' placeholder='First Name' />
+                            <Input type='text' value={fname} onChange={ (e)=> setFname(e.target.value) } w='100%' variant='filled' placeholder='First Name' />
                             {!isError ? (
                              ''
                             ) : (
@@ -56,11 +62,12 @@ function Create_account() {
                             )}
                         </FormControl>
                         
-
                         
+
+                         
                         <FormControl isInvalid={isError}>
                           <FormLabel>Middle Name</FormLabel>
-                            <Input type='text' value={input} onChange={handleInputChange} w='100%' variant='filled' placeholder='Middle Name' />
+                            <Input type='text' value={mdname} onChange={ (e)=> setMdName(e.target.value)} w='100%' variant='filled' placeholder='Middle Name' />
                             {!isError ? (
                               ''
                             ) : (
@@ -72,7 +79,7 @@ function Create_account() {
                        
                         <FormControl isInvalid={isError} >
                           <FormLabel>Last Name</FormLabel>
-                            <Input type='email' value={input} onChange={handleInputChange} w='100%' variant='filled' placeholder='Last Name' />
+                            <Input type='email' value={lname} onChange={ (e)=> setLname(e.target.value)} w='100%' variant='filled' placeholder='Last Name' />
                             {!isError ? (
                              ''
                             ) : (
@@ -84,7 +91,7 @@ function Create_account() {
                         
                         <FormControl isInvalid={isError}  >
                           <FormLabel>Email</FormLabel>
-                            <Input type='email' value={input} onChange={handleInputChange} w='100%' variant='filled' placeholder='emmagospelnews@gmail.com' />
+                            <Input type='email' value={email} onChange={ (e)=> setEmail(e.target.value)} w='100%' variant='filled' placeholder='emmagospelnews@gmail.com' />
                             {!isError ? (
                               ''
                             ) : (
@@ -96,7 +103,7 @@ function Create_account() {
                         
                         <FormControl isInvalid={isError}  >
                           <FormLabel>Phone Number</FormLabel>
-                            <Input type='Number' value={input} onChange={handleInputChange} w='100%' variant='filled' placeholder='080--' />
+                            <Input type='number' value={phone} onChange={ (e)=> setPhone(e.target.value)} w='100%' variant='filled' placeholder='080--' />
                             {!isError ? (
                               ''
                             ) : (
@@ -113,7 +120,8 @@ function Create_account() {
                                   variant='filled'
                                   type={show ? 'text' : 'password'}
                                   placeholder='Enter password'
-                                
+                                  value={password}
+                                  onChange={ (e)=> setPassword(e.target.value)}
                                 />
                                 <InputRightElement width='4.5rem'>
                                   <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -132,7 +140,8 @@ function Create_account() {
                                   variant='filled'
                                   type={show ? 'text' : 'password'}
                                   placeholder='Confirm password'
-                                
+                                  value={comfirm_pass}
+                                  onChange={ (e)=> setComfirmPassword(e.target.value)}
                                 />
                                 <InputRightElement width='4.5rem'>
                                   <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -142,7 +151,6 @@ function Create_account() {
                             </InputGroup>
 
                         </FormControl> 
-                        
                        
                     </SimpleGrid>
     

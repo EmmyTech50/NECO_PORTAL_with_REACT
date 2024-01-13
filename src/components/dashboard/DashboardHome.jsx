@@ -17,14 +17,6 @@ import ResultH from '../../assets/resulthistory.svg'
 import Transaction from '../../assets/transaction.svg'
 
 
-
-
-
-
-
-
-
-
 function DashboardHome() {
 
   const { isOpen, onOpen, onClose } = useDisclosure()

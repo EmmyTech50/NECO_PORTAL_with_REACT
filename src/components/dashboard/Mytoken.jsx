@@ -21,75 +21,13 @@ function Mytoken() {
         <Grid
         h='100vh'
         templateRows='repeat(1, 1fr)'
-        templateColumns='repeat(5, 1fr)'
+        templateColumns='repeat(1, 1fr)'
             width='100%'
         > 
 
 
-            <GridItem h='100vh' bg='#51b55f' px='4'>
-                
-                
-                <Box>
-
-                    <Stack >
-                        <Box py={4}>
-                        <Image src={Logo} />
-                        </Box>
-                    
-                        <HStack py={4}>
-                        <Image src={Dashboard} bg='white'/>
-                        <Text color='white'> Dashboard </Text>
-                        </HStack>
-
-                        <HStack py={4}>
-                        <Image src={MyT} bg='white'/>
-                        <Text color='white'> MyToken</Text>
-                        </HStack>
-
-                        <HStack py={4}>
-                        <Image src={CheckR} bg='white'/>
-                        <Text color='white'> Check Result </Text>
-                        </HStack>
-
-                        <HStack py={4}>
-                        <Image src={ResultH} bg='white'/>
-                        <Text color='white'> Result History </Text>
-                        </HStack>
-
-                        <HStack py={4}>
-                        <Image src={Transaction} bg='white'/>
-                        <Text color='white'> Transaction </Text>
-                        </HStack>
-
-                        <HStack py={4} >
-                        <Image src={Profile} bg='white' />
-                        <Text color='white'> Profile </Text>
-                        </HStack>
-
-                    </Stack>
-
-                </Box>
-
-            </GridItem>
-
-
-            <GridItem h='100vh' width='100%' colSpan='4' overflowY='scroll' overflowX='hidden'>
-                <HStack height='50' bg='lavender' w='100%' display='flex' px='4' justifyContent='space-between' alignItems='center'>
-                    <Text>RESULT PORTAL</Text>
-
-                    <Menu>
-                    <MenuButton bgColor='lavender' as={Button} rightIcon={<ChevronDownIcon />}>
-                        Onogwu Emmanuel<br/>
-                        emmagospelnews@gmail.com
-                    </MenuButton>
-                    <MenuList>
-                        <MenuItem>Profile</MenuItem>
-                        <MenuItem>Log Out</MenuItem>
-                        
-                    </MenuList>
-                    </Menu>
-                </HStack>
-
+            <GridItem h='100vh' width='100%' overflowX='hidden'>
+            
                 <Box mt='10'>
                 <Heading as={'h6'} size={'m'} px={4}> MY TOKEN </Heading>
                 </Box>
