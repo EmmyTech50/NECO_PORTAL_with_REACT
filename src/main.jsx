@@ -12,7 +12,7 @@ import Mytoken from './components/dashboard/Mytoken.jsx'
 import Profile_page from './components/dashboard/Profile_page.jsx'
 import ResultHistory from './components/dashboard/ResultHistory.jsx'
 import Transactions from './components/dashboard/Transactions.jsx'
-// Dashboard
+// Dashboards
 import Home from './components/dashboard/DashboardHome.jsx'
 import Dashland from './components/dashboard/Dashland.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
