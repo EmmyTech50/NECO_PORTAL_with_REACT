@@ -116,7 +116,7 @@ function ManageUsers() {
                   aria-label="View User"
                   icon={<ViewIcon />}
                   onClick={() => handleViewUser(user)}
-                  colorScheme="blue"
+                  colorScheme="green"
                 />
               </Td>
             </Tr>
@@ -146,7 +146,7 @@ function ManageUsers() {
       </Flex>
 
       {/* Drawer for Viewing User Information */}
-      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onCloseDrawer} size="md">
+      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onCloseDrawer} size="xl">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />

@@ -112,18 +112,18 @@ function AdminManagement() {
           </InputGroup>
         </FormControl>
 
-        {/* Add Co-Admin Button */}
+        {/* Add Admin Button */}
         <Button
           colorScheme="green"
           onClick={onOpen}
           borderRadius="5px"
           leftIcon={<AddIcon />}
         >
-          Add Co-Admin
+          Add Admin
         </Button>
       </Flex>
 
-      {/* Co-Admins Table */}
+      {/* Admins Table */}
       <Card border="2px solid #e0e0e0">
         <CardHeader
           display="flex"
@@ -134,7 +134,7 @@ function AdminManagement() {
           p={4}
         >
           <Heading as="h6" size="sm">
-            Co-Admin List
+            Admin List
           </Heading>
         </CardHeader>
 
@@ -162,7 +162,7 @@ function AdminManagement() {
                       <IconButton
                         aria-label="Edit Admin"
                         icon={<EditIcon />}
-                        colorScheme="blue"
+                        colorScheme="green"
                         size="sm"
                       />
                       <IconButton
@@ -213,11 +213,11 @@ function AdminManagement() {
         </CardFooter>
       </Card>
 
-      {/* Add Co-Admin Modal */}
+      {/* Add Admin Modal */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add Co-Admin</ModalHeader>
+          <ModalHeader>Add Admin</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Stack spacing={4}>
@@ -253,7 +253,7 @@ function AdminManagement() {
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="green" mr={3} onClick={onClose}>
               Add
             </Button>
             <Button variant="ghost" onClick={onClose}>

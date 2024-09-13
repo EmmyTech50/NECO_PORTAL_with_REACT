@@ -62,7 +62,7 @@ const AdminTransactions = () => {
       >
         {/* Search and Filter Inputs */}
         <Flex gap={4} flexWrap="wrap">
-          <FormControl w={{ base: 'full', md: '330px' }} bg="#e0e0e0" borderRadius="5px">
+          <FormControl w={{ base: 'full', md: '330px' }} bg="#07bc0c88" borderRadius="5px">
             <InputGroup>
               <InputRightElement pointerEvents="none">
                 <Search2Icon color="black" />
@@ -94,7 +94,7 @@ const AdminTransactions = () => {
 
         {/* Admin Action Buttons */}
         <Flex gap={4}>
-          <Button colorScheme="blue" borderRadius="5px">
+          <Button colorScheme="green" borderRadius="5px">
             Export CSV
           </Button>
           <Button colorScheme="red" borderRadius="5px">

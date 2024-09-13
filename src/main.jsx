@@ -16,19 +16,28 @@ import Transactions from './components/dashboard/Transactions.jsx'
 import Home from './components/dashboard/DashboardHome.jsx'
 import Dashland from './components/dashboard/Dashland.jsx'
 import Admin_Dashb from './components/Admin_Panel/Admin_Dashb.jsx';
-import Users from './components/Admin_Panel/Users.jsx';
+import ManageUsers from './components/Admin_Panel/ManageUsers.jsx';
 import Tokens from './components/Admin_Panel/Tokens.jsx';
 import Transaction from './components/Admin_Panel/Transaction.jsx';
 import Manage_Admin from './components/Admin_Panel/Manage_Admin.jsx';
+import AdminHome from './components/Admin_Panel/AdminHome.jsx';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const router = createBrowserRouter(     [ 
+const router = createBrowserRouter([ 
   {  path: "/",  element: <App />, },
-  {  path: "/Admin",  element: <Admin_Dashb />, },
-  {  path: "/Tokens",  element: <Tokens />, },
-  {  path: "/Manage_Admin",  element: <Manage_Admin />, },
-  {  path: "/Transaction",  element: <Transaction />, },
-  {  path: "/Users",  element: < Users/>, },
+
+  
+  {  path: "/Admin",  element: <Admin_Dashb />, 
+
+    children:[
+        {  path: "/Admin/AdminHome",  element: <AdminHome />, },
+        {  path: "/Admin/Tokens",  element: <Tokens />, },
+        {  path: "/Admin/Manage_Admin",  element: <Manage_Admin />, },
+        {  path: "/Admin/Transaction",  element: <Transaction />, },
+        {  path: "/Admin/Users",  element: <ManageUsers/>, },
+    ]    
+
+  },
 
   {  path: "/app", element: <Home />,
     

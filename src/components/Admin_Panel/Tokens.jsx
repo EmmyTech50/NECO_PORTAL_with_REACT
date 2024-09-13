@@ -40,7 +40,7 @@ function TokenTable() {
   return (
     <Box p={4}>
       {/* Generate Button */}
-      <Button colorScheme="teal" mb={4} onClick={onOpen}>
+      <Button colorScheme="green" mb={4} onClick={onOpen}>
         Generate
       </Button>
 
@@ -76,7 +76,7 @@ function TokenTable() {
             <Input placeholder="Enter value" defaultValue="2000" />
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="teal" mr={3} onClick={onClose}>
+            <Button colorScheme="green" mr={3} onClick={onClose}>
               Continue
             </Button>
           </ModalFooter>

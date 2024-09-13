@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -26,7 +26,7 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../../assets/neco_logo.svg';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Dashboard from '../../assets/dashboard.svg';
@@ -39,6 +39,14 @@ import Transaction from '../../assets/transaction.svg';
 function DashboardHome() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
+  const loc = useLocation();
+
+
+useEffect( ()=>{
+  if(loc.pathname == "/app"){
+    navigate("/app/home");
+}
+},[loc]);
 
   const Logout = () => {
     navigate('/');
@@ -111,7 +119,9 @@ function DashboardHome() {
               </MenuList>
             </Menu>
           </HStack>
-          <Outlet />
+
+               {/* show the other pages */}
+               <Outlet />
         </GridItem>
       </Grid>
 
