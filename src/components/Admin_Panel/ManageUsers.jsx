@@ -96,33 +96,79 @@ function ManageUsers() {
       </Heading>
 
       {/* Users Table */}
-      <Table variant="striped" colorScheme="gray" size="md">
-        <Thead>
-          <Tr>
-            <Th>Name</Th>
-            <Th>Email</Th>
-            <Th>Phone</Th>
-            <Th>Info</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {currentUsers.map((user) => (
-            <Tr key={user.id}>
-              <Td>{user.name}</Td>
-              <Td>{user.email}</Td>
-              <Td>{user.phone}</Td>
-              <Td>
-                <IconButton
-                  aria-label="View User"
-                  icon={<ViewIcon />}
-                  onClick={() => handleViewUser(user)}
-                  colorScheme="green"
-                />
-              </Td>
+      <Box overflowX="auto">
+        <Table
+          variant="unstyled"
+          size="md"
+          borderWidth="1px"
+          borderRadius="md"
+          boxShadow="lg"
+          bg="white"
+        >
+          <Thead>
+            <Tr>
+              <Th
+                p={3}
+                borderBottomWidth="2px"
+                borderBottomColor="gray.200"
+                fontSize="sm"
+                color="gray.600"
+                boxShadow="md"
+              >
+                Name
+              </Th>
+              <Th
+                p={3}
+                borderBottomWidth="2px"
+                borderBottomColor="gray.200"
+                fontSize="sm"
+                color="gray.600"
+                boxShadow="md"
+              >
+                Email
+              </Th>
+              <Th
+                p={3}
+                borderBottomWidth="2px"
+                borderBottomColor="gray.200"
+                fontSize="sm"
+                color="gray.600"
+                boxShadow="md"
+              >
+                Phone
+              </Th>
+              <Th
+                p={3}
+                borderBottomWidth="2px"
+                borderBottomColor="gray.200"
+                fontSize="sm"
+                color="gray.600"
+                boxShadow="md"
+              >
+                Info
+              </Th>
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
+          </Thead>
+          <Tbody>
+            {currentUsers.map((user) => (
+              <Tr key={user.id} _hover={{ bg: 'gray.50' }}>
+                <Td p={3}>{user.name}</Td>
+                <Td p={3}>{user.email}</Td>
+                <Td p={3}>{user.phone}</Td>
+                <Td p={3}>
+                  <IconButton
+                    aria-label="View User"
+                    icon={<ViewIcon />}
+                    onClick={() => handleViewUser(user)}
+                    colorScheme="green"
+                    size="sm"
+                  />
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </Box>
 
       {/* Pagination Controls */}
       <Flex justifyContent="space-between" alignItems="center" mt={4}>
@@ -130,16 +176,18 @@ function ManageUsers() {
           leftIcon={<ArrowLeftIcon />}
           onClick={handlePrevPage}
           isDisabled={currentPage === 1}
+          size="sm"
         >
           Previous
         </Button>
-        <Text>
+        <Text fontSize="sm">
           Page {currentPage} of {totalPages}
         </Text>
         <Button
           rightIcon={<ArrowRightIcon />}
           onClick={handleNextPage}
           isDisabled={currentPage === totalPages}
+          size="sm"
         >
           Next
         </Button>
@@ -204,20 +252,54 @@ function ManageUsers() {
           <ModalHeader>Transaction History</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Table variant="simple" colorScheme="gray" size="sm">
+            <Table
+              variant="unstyled"
+              size="sm"
+              borderWidth="1px"
+              borderRadius="md"
+              boxShadow="lg"
+              bg="white"
+            >
               <Thead>
                 <Tr>
-                  <Th>Date</Th>
-                  <Th>Amount</Th>
-                  <Th>Status</Th>
+                  <Th
+                    p={3}
+                    borderBottomWidth="2px"
+                    borderBottomColor="gray.200"
+                    fontSize="sm"
+                    color="gray.600"
+                    boxShadow="md"
+                  >
+                    Date
+                  </Th>
+                  <Th
+                    p={3}
+                    borderBottomWidth="2px"
+                    borderBottomColor="gray.200"
+                    fontSize="sm"
+                    color="gray.600"
+                    boxShadow="md"
+                  >
+                    Amount
+                  </Th>
+                  <Th
+                    p={3}
+                    borderBottomWidth="2px"
+                    borderBottomColor="gray.200"
+                    fontSize="sm"
+                    color="gray.600"
+                    boxShadow="md"
+                  >
+                    Status
+                  </Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {transactions.map((transaction) => (
-                  <Tr key={transaction.id}>
-                    <Td>{transaction.date}</Td>
-                    <Td>{transaction.amount}</Td>
-                    <Td>{transaction.status}</Td>
+                  <Tr key={transaction.id} _hover={{ bg: 'gray.50' }}>
+                    <Td p={3}>{transaction.date}</Td>
+                    <Td p={3}>{transaction.amount}</Td>
+                    <Td p={3}>{transaction.status}</Td>
                   </Tr>
                 ))}
               </Tbody>

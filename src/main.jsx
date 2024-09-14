@@ -22,6 +22,7 @@ import Transaction from './components/Admin_Panel/Transaction.jsx';
 import Manage_Admin from './components/Admin_Panel/Manage_Admin.jsx';
 import AdminHome from './components/Admin_Panel/AdminHome.jsx';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LoginPage from './components/Admin_Panel/LoginPage.jsx'
 
 const router = createBrowserRouter([ 
   {  path: "/",  element: <App />, },
@@ -35,9 +36,13 @@ const router = createBrowserRouter([
         {  path: "/Admin/Manage_Admin",  element: <Manage_Admin />, },
         {  path: "/Admin/Transaction",  element: <Transaction />, },
         {  path: "/Admin/Users",  element: <ManageUsers/>, },
-    ]    
+        
+    ] 
+      
 
   },
+
+  {  path: "/LoginPage",  element: <LoginPage/>, }, 
 
   {  path: "/app", element: <Home />,
     

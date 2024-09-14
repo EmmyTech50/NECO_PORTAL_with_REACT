@@ -84,7 +84,7 @@ function Admin_Dashb() {
             <BiBarChartAlt /><Text>Manage Admin</Text>
             </Flex>
 
-            <Flex alignItems="center" gap={4} cursor="pointer" as={Link} to='#'>
+            <Flex alignItems="center" gap={4} cursor="pointer" as={Link} to='/LoginPage'>
             <BiLogOut /><Text>Log-out</Text>
             </Flex>
           </Flex>
