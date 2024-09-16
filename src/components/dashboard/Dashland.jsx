@@ -13,7 +13,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import CommonIcon from '../../../src/assets/commonicon.svg';
-import CardIcon1 from '../../assets/cardicon1.svg';
+import CardIcon1 from '../../../src/assets/cardicon2.svg';
 import CardIcon2 from '../../../src/assets/cardicon2.svg';
 import CardIcon3 from '../../../src/assets/cardicon3.svg';
 import CardIcon4 from '../../../src/assets/cardicon4.svg';
