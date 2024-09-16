@@ -32,7 +32,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import Dashboard from '../../assets/dashboard.svg';
 import MyT from '../../assets/mytoken.svg';
 import Profile from '../../assets/profile.svg';
-import CheckR from '../../assets/checkresult.svg';
+import CheckR from '../../../src/assets/profile.svg';
 import ResultH from '../../assets/resulthistory.svg';
 import Transaction from '../../assets/transaction.svg';
 
