@@ -21,10 +21,10 @@ import Tokens from './components/Admin_Panel/Tokens.jsx';
 import Transaction from './components/Admin_Panel/Transaction.jsx';
 import Manage_Admin from './components/Admin_Panel/Manage_Admin.jsx';
 import AdminHome from './components/Admin_Panel/AdminHome.jsx';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import LoginPage from './components/Admin_Panel/LoginPage.jsx'
 
-const router = createBrowserRouter([ 
+const router = createHashRouter([ 
   {  path: "/",  element: <App />, },
 
   
