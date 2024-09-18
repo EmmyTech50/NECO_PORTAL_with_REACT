@@ -8,6 +8,8 @@ import {
   ViewIcon,
   ViewOffIcon,
   AddIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
 } from '@chakra-ui/icons';
 import {
   Box,
@@ -45,10 +47,13 @@ import {
 
 function AdminManagement() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const inputSize = useBreakpointValue({ base: 'md', md: 'lg' });
+  
 
   // Dummy data for co-admins
-  const initialCoAdmins = [
+  const initialAdmins = [
     { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Editor', status: 'Active' },
     { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Moderator', status: 'Inactive' },
     { id: 3, name: 'Sam Wilson', email: 'sam@example.com', role: 'Viewer', status: 'Active' },
@@ -57,14 +62,14 @@ function AdminManagement() {
     { id: 6, name: 'Tom Hanks', email: 'tom@example.com', role: 'Viewer', status: 'Active' },
   ];
 
-  const [coAdmins, setCoAdmins] = useState(initialCoAdmins);
+  const [Admins, setAdmins] = useState(initialAdmins);
   const [currentPage, setCurrentPage] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const itemsPerPage = 3;
 
   // Pagination calculations
-  const totalPages = Math.ceil(coAdmins.length / itemsPerPage);
-  const paginatedAdmins = coAdmins.slice(
+  const totalPages = Math.ceil(Admins.length / itemsPerPage);
+  const paginatedAdmins = Admins.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -162,12 +167,14 @@ function AdminManagement() {
                       <IconButton
                         aria-label="Edit Admin"
                         icon={<EditIcon />}
+                        onClick={() => setIsEditOpen(true)}
                         colorScheme="green"
                         size="sm"
                       />
                       <IconButton
                         aria-label="Delete Admin"
                         icon={<DeleteIcon />}
+                        onClick={() => setIsDeleteOpen(true)}
                         colorScheme="red"
                         size="sm"
                       />
@@ -192,7 +199,7 @@ function AdminManagement() {
           <Button
             onClick={handlePrevPage}
             isDisabled={currentPage === 1}
-            leftIcon={<ChevronLeftIcon />}
+            leftIcon={<ArrowLeftIcon />}
             size="sm"
             variant="outline"
           >
@@ -204,7 +211,7 @@ function AdminManagement() {
           <Button
             onClick={handleNextPage}
             isDisabled={currentPage === totalPages}
-            rightIcon={<ChevronRightIcon />}
+            rightIcon={<ArrowRightIcon />}
             size="sm"
             variant="outline"
           >
@@ -257,6 +264,69 @@ function AdminManagement() {
               Add
             </Button>
             <Button variant="ghost" onClick={onClose}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+
+      {/* Edit Modal */}
+      <Modal isOpen={isEditOpen} onClose={ ()=>setIsEditOpen(!isEditOpen)} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Edit Admin</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Stack spacing={4}>
+              <FormControl>
+                <Input placeholder="Name" />
+              </FormControl>
+              <FormControl>
+                <Input placeholder="Email" type="email" />
+              </FormControl>
+              
+              <FormControl>
+                <Select placeholder="Role">
+                  <option value="editor">Editor</option>
+                  <option value="moderator">Moderator</option>
+                  <option value="viewer">Viewer</option>
+                </Select>
+              </FormControl>
+            </Stack>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="green" mr={3} onClick={()=> setIsEditOpen(false)}>
+              Save Changes
+            </Button>
+            <Button colorScheme="red" onClick={()=> setIsEditOpen(false)}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+
+      {/* delete Modal */}
+      <Modal isOpen={isDeleteOpen} onClose={ ()=>setIsDeleteOpen(!isDeleteOpen)} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          >
+            Are You Sure You want to Delete?
+          </ModalBody>
+          <ModalFooter
+           display="flex"
+           justifyContent="center"
+           alignItems="center"
+          >
+            <Button colorScheme="green" mr={3} onClick={()=> setIsDeleteOpen(false)}>
+              Yes
+            </Button>
+            <Button colorScheme="red" onClick={()=> setIsDeleteOpen(false)}>
               Cancel
             </Button>
           </ModalFooter>

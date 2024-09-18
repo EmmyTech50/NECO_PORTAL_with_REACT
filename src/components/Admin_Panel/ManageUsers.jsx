@@ -29,8 +29,14 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  VStack,
+  HStack,
 } from '@chakra-ui/react';
-import { ViewIcon, ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
+import { ViewIcon, ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
 
 function ManageUsers() {
   const { isOpen: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer } = useDisclosure();
@@ -76,6 +82,7 @@ function ManageUsers() {
     setShowTokens(!showTokens);
   };
 
+
   // Pagination handlers
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -96,87 +103,114 @@ function ManageUsers() {
       </Heading>
 
       {/* Users Table */}
-      <Box overflowX="auto">
-        <Table
-          variant="unstyled"
-          size="md"
-          borderWidth="1px"
-          borderRadius="md"
-          boxShadow="lg"
-          bg="white"
-        >
-          <Thead>
-            <Tr>
-              <Th
-                p={3}
-                borderBottomWidth="2px"
-                borderBottomColor="gray.200"
-                fontSize="sm"
-                color="gray.600"
-                boxShadow="md"
-              >
-                Name
-              </Th>
-              <Th
-                p={3}
-                borderBottomWidth="2px"
-                borderBottomColor="gray.200"
-                fontSize="sm"
-                color="gray.600"
-                boxShadow="md"
-              >
-                Email
-              </Th>
-              <Th
-                p={3}
-                borderBottomWidth="2px"
-                borderBottomColor="gray.200"
-                fontSize="sm"
-                color="gray.600"
-                boxShadow="md"
-              >
-                Phone
-              </Th>
-              <Th
-                p={3}
-                borderBottomWidth="2px"
-                borderBottomColor="gray.200"
-                fontSize="sm"
-                color="gray.600"
-                boxShadow="md"
-              >
-                Info
-              </Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {currentUsers.map((user) => (
-              <Tr key={user.id} _hover={{ bg: 'gray.50' }}>
-                <Td p={3}>{user.name}</Td>
-                <Td p={3}>{user.email}</Td>
-                <Td p={3}>{user.phone}</Td>
-                <Td p={3}>
-                  <IconButton
-                    aria-label="View User"
-                    icon={<ViewIcon />}
-                    onClick={() => handleViewUser(user)}
-                    colorScheme="green"
-                    size="sm"
-                  />
-                </Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
-      </Box>
+      <Card border="2px solid #e0e0e0">
 
-      {/* Pagination Controls */}
-      <Flex justifyContent="space-between" alignItems="center" mt={4}>
+      <CardHeader
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          borderBottom="2px solid #ccc"
+          bg="#fff"
+          p={4}
+        >
+          <Heading as="h6" size="sm">
+            User's Activities
+          </Heading>
+        </CardHeader>
+
+        <CardBody
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        borderBottom="2px solid #ccc"
+        bg="#fff"
+        p={4}
+        >
+
+        
+          <Table variant="striped" colorScheme="gray" size="sm" >
+         
+            <Thead>
+              <Tr>
+                <Th
+                  p={3}
+                  borderBottomWidth="2px"
+                  borderBottomColor="gray.200"
+                  fontSize="sm"
+                  color="gray.600"
+                  boxShadow="md"
+                >
+                  Name
+                </Th>
+                <Th
+                  p={3}
+                  borderBottomWidth="2px"
+                  borderBottomColor="gray.200"
+                  fontSize="sm"
+                  color="gray.600"
+                  boxShadow="md"
+                >
+                  Email
+                </Th>
+                <Th
+                  p={3}
+                  borderBottomWidth="2px"
+                  borderBottomColor="gray.200"
+                  fontSize="sm"
+                  color="gray.600"
+                  boxShadow="md"
+                >
+                  Phone
+                </Th>
+                <Th
+                  p={3}
+                  borderBottomWidth="2px"
+                  borderBottomColor="gray.200"
+                  fontSize="sm"
+                  color="gray.600"
+                  boxShadow="md"
+                >
+                  Info
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {currentUsers.map((user) => (
+                <Tr key={user.id} >
+                  <Td p={3}>{user.name}</Td>
+                  <Td p={3}>{user.email}</Td>
+                  <Td p={3}>{user.phone}</Td>
+                  <Td p={3}>
+                    <IconButton
+                      aria-label="View User"
+                      icon={<ViewIcon />}
+                      onClick={() => handleViewUser(user)}
+                      colorScheme="green"
+                      size="sm"
+                    />
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </CardBody>
+
+        {/* Pagination and Rows Number */}
+        <CardFooter
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        bg="#e0e0e0"
+        p={2}
+        flexWrap="wrap"
+        gap={4}
+        >
         <Button
-          leftIcon={<ArrowLeftIcon />}
           onClick={handlePrevPage}
           isDisabled={currentPage === 1}
+          leftIcon={<ArrowLeftIcon />}
           size="sm"
+          variant="outline"
         >
           Previous
         </Button>
@@ -191,18 +225,19 @@ function ManageUsers() {
         >
           Next
         </Button>
-      </Flex>
+        </CardFooter>
+      </Card>
 
       {/* Drawer for Viewing User Information */}
-      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onCloseDrawer} size="xl">
+      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onCloseDrawer} size="lg">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>View User Information</DrawerHeader>
+          <DrawerHeader>User Information</DrawerHeader>
 
           <DrawerBody>
             {selectedUser && (
-              <Stack spacing={4}>
+              <HStack spacing={4}>
                 <Text>
                   <strong>Name:</strong> {selectedUser.name}
                 </Text>
@@ -212,7 +247,7 @@ function ManageUsers() {
                 <Text>
                   <strong>Phone:</strong> {selectedUser.phone}
                 </Text>
-
+              
                 {/* Tokens and Transactions Buttons */}
                 <Flex gap={4} mt={4}>
                   <Button colorScheme="blue" onClick={handleToggleTokens}>
@@ -233,7 +268,7 @@ function ManageUsers() {
                     ))}
                   </Select>
                 )}
-              </Stack>
+              </HStack>
             )}
           </DrawerBody>
 
@@ -314,7 +349,12 @@ function ManageUsers() {
         </ModalContent>
       </Modal>
     </Box>
+
+
   );
 }
+
+
+
 
 export default ManageUsers;

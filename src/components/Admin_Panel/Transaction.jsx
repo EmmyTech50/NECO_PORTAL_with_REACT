@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeftIcon, ArrowRightIcon, Search2Icon } from '@chakra-ui/icons';
+import {  ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, Search2Icon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -44,6 +44,20 @@ const AdminTransactions = () => {
 
   // Dynamic input size based on screen size for better responsiveness
   const inputSize = useBreakpointValue({ base: 'md', md: 'lg' });
+
+   // Handle page changes
+   const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
 
   return (
     <Box p={4}>
@@ -98,7 +112,7 @@ const AdminTransactions = () => {
             Export CSV
           </Button>
           <Button colorScheme="red" borderRadius="5px">
-            Bulk Action
+            Export PDF
           </Button>
         </Flex>
       </Flex>
@@ -162,38 +176,29 @@ const AdminTransactions = () => {
           flexWrap="wrap"
           gap={4}
         >
-          <Select
-            variant="filled"
-            placeholder="Rows per page"
-            size="lg"
-            w="auto"
-            onChange={(e) => setRowsPerPage(Number(e.target.value))}
+          <Button
+            onClick={handlePrevPage}
+            isDisabled={currentPage === 1}
+            leftIcon={<ArrowLeftIcon />}
+            size="sm"
+            variant="outline"
           >
-            <option value="10">10 Rows</option>
-            <option value="20">20 Rows</option>
-            <option value="30">30 Rows</option>
-          </Select>
+            Previous
+          </Button>
 
           <Text>
             Page {currentPage} of {totalPages}
           </Text>
 
-          <Flex gap={2}>
-            <Button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              isDisabled={currentPage === 1}
-              colorScheme="green"
-            >
-              <ArrowLeftIcon color="white" />
-            </Button>
-            <Button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              isDisabled={currentPage === totalPages}
-              colorScheme="green"
-            >
-              <ArrowRightIcon color="white" />
-            </Button>
-          </Flex>
+          <Button
+            onClick={handleNextPage}
+            isDisabled={currentPage === totalPages}
+            rightIcon={<ArrowRightIcon />}
+            size="sm"
+            variant="outline"
+          >
+            Next
+          </Button>
         </CardFooter>
       </Card>
     </Box>

@@ -20,10 +20,16 @@ import {
   useDisclosure,
   Select,
   Text,
+  Card,
+  CardHeader,
+  CardBody,
+  Heading,
+  CardFooter,
 } from '@chakra-ui/react';
+import { AddIcon, ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 // Sample token data
-const tokensData = [
+const allUsers = [
   { id: 1, name: 'Token A', status: 'Active', type: 'Used' },
   { id: 2, name: 'Token B', status: 'Inactive', type: 'Used' },
   { id: 3, name: 'Token C', status: 'Active', type: 'Active' },
@@ -37,9 +43,14 @@ const tokensData = [
 function TokenTable() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // Pagination state
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+// Pagination state
+const [currentPage, setCurrentPage] = useState(1);
+const usersPerPage = 5;
+const indexOfLastUser = currentPage * usersPerPage;
+const indexOfFirstUser = indexOfLastUser - usersPerPage;
+const currentUsers = allUsers.slice(indexOfFirstUser, indexOfLastUser);
+const totalPages = Math.ceil(allUsers.length / usersPerPage);
 
   // Handle page change
   const handleChangePage = (newPage) => {
@@ -52,19 +63,50 @@ function TokenTable() {
     setPage(0); // Reset to first page
   };
 
-  // Paginated tokens data
-  const paginatedTokens = tokensData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+  // Pagination handlers
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // // Paginated tokens data
+  // const paginatedTokens = allUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+
+
+  
 
   return (
     <Box p={4}>
       {/* Generate Button */}
-      <Button colorScheme="green" mb={4} onClick={onOpen}>
+      <Button colorScheme="green" mb={4} onClick={onOpen} leftIcon={<AddIcon />}>
         Generate
       </Button>
 
       {/* Token Table with Box Shadow */}
-      <Box boxShadow="lg" borderRadius="md" overflow="hidden" bg="white" mb={4}>
-        <TableContainer>
+      <Card border="2px solid #e0e0e0">
+
+      <CardHeader
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          borderBottom="2px solid #ccc"
+          bg="#fff"
+          p={4}
+        >
+          <Heading as="h6" size="sm">
+            Token Order
+          </Heading>
+        </CardHeader>
+
+      <CardBody p={4}>
+
           <Table variant="striped" colorScheme="gray" size="sm">
             <Thead>
               <Tr>
@@ -80,7 +122,7 @@ function TokenTable() {
               </Tr>
             </Thead>
             <Tbody>
-              {paginatedTokens.map((token) => (
+              {currentUsers.map((token) => (
                 <Tr key={token.id} _hover={{ bg: 'gray.50' }}>
                   <Td p={4}>{token.name}</Td>
                   <Td p={4}>{token.type === 'Active' ? 'Yes' : 'No'}</Td>
@@ -89,37 +131,48 @@ function TokenTable() {
               ))}
             </Tbody>
           </Table>
-        </TableContainer>
-      </Box>
+        
 
-      {/* Pagination Controls */}
-      <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
-        <Select value={rowsPerPage} onChange={handleRowsPerPageChange} width="150px">
-          <option value={5}>5 rows</option>
-          <option value={10}>10 rows</option>
-          <option value={25}>25 rows</option>
-        </Select>
 
-        <Box display="flex" alignItems="center">
+
+      </CardBody>
+
+      {/* Pagination and Footer */}
+      <CardFooter
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          bg="#e0e0e0"
+          p={2}
+          flexWrap="wrap"
+          gap={4}
+        >
+
           <Button
-            onClick={() => handleChangePage(page - 1)}
-            isDisabled={page === 0}
+            onClick={handlePrevPage}
+            isDisabled={currentPage === 1}
+            leftIcon={<ArrowLeftIcon />}
             size="sm"
+            variant="outline"
           >
             Previous
           </Button>
-          <Text mx={2} fontSize="sm">
-            Page {page + 1} of {Math.ceil(tokensData.length / rowsPerPage)}
+          <Text>
+            Page {currentPage} of {totalPages}
           </Text>
           <Button
-            onClick={() => handleChangePage(page + 1)}
-            isDisabled={page >= Math.ceil(tokensData.length / rowsPerPage) - 1}
+            onClick={handleNextPage}
+            isDisabled={currentPage === totalPages}
+            rightIcon={<ArrowRightIcon />}
             size="sm"
+            variant="outline"
           >
             Next
           </Button>
-        </Box>
-      </Box>
+
+        </CardFooter>
+       
+      </Card>      
 
       {/* Generate Modal */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
